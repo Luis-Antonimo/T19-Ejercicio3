@@ -47,16 +47,18 @@ namespace T19_Ejercicio3
             if (radioButton1.Checked) { radioboton = radioButton1.Text; }
             if (radioButton2.Checked) { radioboton = radioButton2.Text; }
             if (radioButton3.Checked) { radioboton = radioButton3.Text; }
-            
-            string check1 = "";
-            string check2 = "";
-            string check3 = "";
-            if (checkBox1.Checked) { check1 = "Programación ";}
-            if (checkBox2.Checked) { check2 = "Diseño gráfico ";}
-            if (checkBox3.Checked) { check3 = "Administración ";}
-            
 
-            MessageBox.Show("\nHoras dedicadas: "+ label2.Text + "\nSistema operativo: " + radioboton  + "\nEspecialidad/es: " + check1 + check2 + check3,"Resumen", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //Es un tipo de string que solo memoriza si hay elementos. Es variable.
+            List<string> opciones = new List<string>();
+            if (checkBox1.Checked) { opciones.Add("Programación");}
+            if (checkBox2.Checked) { opciones.Add("Diseño gráfico");}
+            if (checkBox3.Checked) { opciones.Add("Administración");}
+            string[] arrayboxes = opciones.ToArray();
+            //Añade una coma después de cada elemento.
+            string checkboxes = String.Join(", ", arrayboxes);
+
+
+            MessageBox.Show("\nHoras dedicadas: "+ label2.Text + "\nSistema operativo: " + radioboton  + "\nEspecialidad/es: " + checkboxes,"Resumen", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
